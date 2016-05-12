@@ -1,28 +1,37 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+Var
+pessoas, coco, cont, coco_inicial,cont_pessoas, confirmacao: inteiro
+Inicio
+Escreval ("Qual o numero total de Cocos coletados na Ilha?")
+Leia (coco)
+cont <-coco
+coco_inicial <-coco
+confirmacao <- 1
+Enquanto (confirmacao <coco) e (confirmacao <>0) FACA
+Enquanto (cont>1) e (coco>1) e (coco_inicial mod cont <> 1) FACA
+cont <- cont - 1
+confirmacao <- confirmacao +1
+FimEnquanto
+Pessoas <- cont
+Enquanto (pessoas <>0) e (coco mod pessoas = 1) FACA
+Se ((coco - 1) mod pessoas = 0) ENTAO
+coco <- coco div pessoas
+coco <- coco * pessoas - coco
+cont_pessoas <- cont_pessoas + 1
+Fimse
+FimEnquanto
+Se (coco > 1) e (coco mod pessoas = 0) e (cont_pessoas = pessoas) Entao
+confirmacao <- 0
+Senao
+confirmacao <- confirmacao+1
+coco <- coco_inicial
+cont <- cont-1
+cont_pessoas <- 0
+FimSe
+FimEnquanto
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+Se(confirmacao =0) Entao
+Escreval("1 Macaco + pessoas", pessoas)
+Senao
+Escreva("sem solução")
+FimSe
+FimAlgoritmo
